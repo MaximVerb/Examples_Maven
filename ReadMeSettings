@@ -1,0 +1,65 @@
+Voor het aanmaken van je eigen instellingen dien je een settings.xml file te maken
+op dezelfde locatie waar de lokale repo zich bevindt.
+Er bevindt zich een settings.xml in de config folder en eentje die je dient aan te maken ter hoogte van de lokale repo,
+de zogenaamde gebruiker settings. Bij het hanteren van settings geeft Maven eerst voorrang aan gebruikerSettings.
+In mijn geval ter hoogte van volgende directory : C:\Users\maxim\.m2
+
+Voeg vervolgens volgende (skeletal)  code toe :
+
+<settings xmlns = "http://maven.apache.org/SETTINGS/1.0.0"
+xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation = "http://maven.apache.org/SETTINGS/1.0.0
+			http://maven.apache.org/xsd/settings--1.0.0.xsd">
+
+<localRepository/>
+<interactiveMode/>
+<offline/>
+<pluginGroups/>
+<servers/>
+<mirrors/>
+<proxies/>
+<profiles/>
+<activeProfiles/>
+
+</settings>
+
+Uitleg bij ieder onderdeel :
+- localRepository :     laat toe dat je een ander path geeft aan Maven om de dependencies en plug-ins die je nodig hebt voor je
+                        project ergens anders te bewaren
+
+- interactiveMode :     standaard staat dit op true. True geeft aan Maven door dat de standaard configuratie voor bepaalde
+                        zaken dient gebruikt te worden. Wanneer dit False is, vraagt Maven input aan de gebruiker.
+
+- offLine :     de standaardwaarde hiervan is False, wat wilt zeggen dat Maven voor plugins en dependencies de toelating
+                heeft om het internet af te schuimen. Indien je dit als True aangeeft, zal er enkel in de lokale repo
+                naar dependencies en plugins gezocht worden.
+
+- servers :     Maven kan interageren met verschillende soorten servers, bijvoorbeeld een Gitserver of een off-site
+                reposerver. In deze rubriek dien je het paswoord en de gebruikersnaam ervoor te specifiëren.
+                SideNote: iedereen kan dan aan het paswoord, maar dit kan via encryptie vermeden worden. Zie later.
+
+- mirrors:      hiermee geef je aan dat Maven een andere repo dient te gebruiken dan een publieke repo, om dependencies
+                en plugins te downloaden. Dit omwille van veiligheidsredenen. Bijvoorbeeld een bedrijfrepo.
+
+- proxies:      hiermee geef je het HTTP adres mee dat Maven mag gebruiken om zich indirect toegang te verlenen tot het internet.
+                Zo kan een bedrijf slechts een gelimiteerde internettoegang verschaffen via een bepaald internetadres.
+
+                Voorbeeld:
+
+                <proxies>
+                    <proxy>
+                            <id>companyProxy</id>
+                            <active>true</active>                   <!--zegt dat deze proxy actief is, stel je gebruikt
+                                                                        meerdere proxies, dan moet je dit op false
+                                                                        zetten, en diegene die je gebruikt op true -->
+                            <protocol>http</protocol>               <!-- standaard http -->
+                            <host>proxy.baeldung.com</host>         <!-- de machine zelf -->
+                            <port>80</port>                         <!-- luistert naar HTTP aanvragen via deze ingang-->
+                            <username>aUsername</username>
+                            <password>aPassword</password>
+                            <nonProxyHosts/>                        <!--    wanneer je een lokale site gebruikt die niet
+                                                                            door de proxy dient te gaan -->
+                    </proxy>
+                </proxies>
+
+                verder uitleg proxy = https://www.youtube.com/watch?v=5cPIukqXe5w
