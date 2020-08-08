@@ -17,3 +17,17 @@ CMD DEFAULT LIFECYCLE
 6. mvn deploy : het pakket toevoegen aan de globale repo voor gebruik
 
 Opm. : er zijn nog veel andere fases, maar dit zijn de voornaamste
+
+---------------------
+CMD CLEAN LIFECYCLE
+---------------------
+-mvn clean
+
+---------------------
+CMD SITE LIFECYCLE
+---------------------
+
+- mvn site : site genereren
+- mvn site-deploy : het in werking stellen van de siteµ
+
+Opm.: vereist site-plugin & info-reports-plugin (zie POM voor vb)

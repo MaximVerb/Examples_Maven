@@ -5,7 +5,8 @@ Maven kent drie lifecycles :
 1. clean lifecycle : alle gegenereerde bestanden worden opgekuisd (m.a.w. mvn clean)
 2. default lifecycle : het project compileren, testen, JAR-file van maken en op de lokale repo zetten zodat het gebruikt
 kan worden door anderen
-3. site lifecycle
+3. site lifecycle : Maven kan ook een website genereren met alle informatie over het project, zodat ontwikkelaars
+gemakkelijk alles kunnen opzoeken (m.a.w. mvn site & mvn site-deploy)
 
 
 Wanneer je een fase uitvoert ga je ineens alle voorgaande goals ook uitvoeren. Wil je daerentegen een specifieke goal

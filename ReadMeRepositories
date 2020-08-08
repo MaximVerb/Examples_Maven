@@ -1,0 +1,19 @@
+---------------
+REPOSITORIES
+---------------
+Maven pakt de open source  code die het nodig heeft van een centrale repo op het internet.
+Deze repo heeft echter misschien niet alle code die we nodig hebben, dus kunnen we een extra repo specifiëren
+in het pom bestand als volgt:
+
+<repositories>
+    <repository>
+        <id>eenId</id>
+        <url>linkNaarAndereRepo</url>
+    </repository>
+</repositories>
+
+Dit blok dient voor de tag project te komen in de POM
+
+Stel dat je je eigen artifact; je eigen code beschikbaar wilt stellen voor een bedrijf repo, dan doe je dit makkelijk
+door na de bovenstaande tag een tag te maken met <distributionManagement> en de repo daarin te kopiëren. Ter referentie
+zie weer het POM bestand.

@@ -1,4 +1,5 @@
 Voor het aanmaken van je eigen instellingen dien je een settings.xml file te maken
+(dit kan ook via profiles!! maar daar gaan we verder niet op in )
 op dezelfde locatie waar de lokale repo zich bevindt.
 Er bevindt zich een settings.xml in de config folder en eentje die je dient aan te maken ter hoogte van de lokale repo,
 de zogenaamde gebruiker settings. Bij het hanteren van settings geeft Maven eerst voorrang aan gebruikerSettings.
