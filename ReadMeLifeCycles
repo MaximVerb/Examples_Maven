@@ -1,0 +1,37 @@
+------------------------
+PHASES AND GOALS
+------------------------
+Maven kent drie lifecycles :
+1. clean lifecycle : alle gegenereerde bestanden worden opgekuisd (m.a.w. mvn clean)
+2. default lifecycle : het project compileren, testen, JAR-file van maken en op de lokale repo zetten zodat het gebruikt
+kan worden door anderen
+3. site lifecycle
+
+
+Wanneer je een fase uitvoert ga je ineens alle voorgaande goals ook uitvoeren. Wil je daerentegen een specifieke goal
+uitvoeren via cmd dan is de regel : mvn + plug-in: + goal
+
+Vb het aanmaken van javadocumentatie : mvn javadoc:javadoc
+
+Stel dat je een goal expliciet automatisch wilt laten lopen. Dan dien je dit toe te voegen via de tag <execution>
+bij de plugin. Stel je wilt dat de java documentatie automatisch gegenereert wordt bij het aanmaken van een package:
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.0.</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal> javadoc </goal>
+                        </goals>
+                        <phase> package </package>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+

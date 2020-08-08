@@ -1,0 +1,19 @@
+Meest gebruikte commando's:
+- mvn package --> voor het maken van een JAR-, WAR-, zip- bestand
+- mvn clean --> om de target leeg te maken
+- mvn clean package --> samenstelling van de twee
+- mvn test --> kun je de testklassen laten uitvoeren
+- mvn dependency:tree  --> om te kijken welke dependency versies maven gebruikt
+- mvn versions:display-plugin-updates --> welke plugin versies Maven zal gebruiken
+
+---------------------
+CMD DEFAULT LIFECYCLE
+---------------------
+1. mvn validate : nagaan of het project geldig is
+2. mvn compile : compileer de broncode
+3. mvn test : voer de unit-testen uit
+4. mvn package : zie supra
+5. mvn install : het pakket toevoegen aan de lokale repo voor gebruik
+6. mvn deploy : het pakket toevoegen aan de globale repo voor gebruik
+
+Opm. : er zijn nog veel andere fases, maar dit zijn de voornaamste

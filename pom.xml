@@ -4,12 +4,45 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>Example_Maven</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>org.example</groupId>          <!--Wie is de eigenaar van het project, meestal domeinnaam -->
+    <artifactId>Example_Maven</artifactId>  <!-- identificeert project -->
+    <version>1.0.0-SNAPSHOT</version>         <!--  versie project, 3-cijferige combinatie tezamen evt met letter
+                                                    snapshot wijst ons erop dat het project nog in ontwikkeling is-->
+    <packaging>jar</packaging>              <!--je kunt kiezen tussen:
+                                                jar/war/ejb/ear/pom -->
 
     <developers>
     </developers>
 
+    <properties>
+        <project.build.sourceEncoding> UTF-8 </project.build.sourceEncoding> <!--wordt gebruikt voor Westerse kerakter-->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <!--Maven gaat het JAR-bestand mbt log4j zoeken op het internet, binnentrekken, en dit opslaan in de lokale repo-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+   </dependencies>
 
 </project>

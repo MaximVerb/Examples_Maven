@@ -1,0 +1,39 @@
+Er zijn eigenlijk stappen die je dient te doorlopen voor het toevoegen van een dependency:
+1. dependency in het pom.xml bestand toevoegen
+2. de klasse die je in de broncode wenst te gebruiken importeren
+3. een xml-bestand toevoegen mbt tot de configuratie van de geïmporteerde open source code in resources dir (indien nodig)
+
+
+-------
+Scope
+-------
+Aan dependencies kan de tag scope worden toegevoegd, er zijn hier 5 opties :
+- compile (standaardinstelling) :   de JAR-bestanden worden in alle omstandigheden aan het modulepath toegevoegd, ook
+                                    in het uitendelijke artifact. Dit is de standaardinstelling en kan dus weggelaten
+                                    worden.
+- test :                            de afhankelijkheid is enkel aanwezig tijdens het compileren en testen (Junit)
+- runtime :                         de afhankelijkheid is enkel nodig tijdens het runnen en testen van de applicatie
+                                    niet tijdens het compileren
+- provided:                         enkel bij het compileren is de afhankelijkheid nodig, bij de uiteindelijke
+                                    uitvoering veronderstelt men al de aanwezigheid van die JAR-bestanden
+- system :                          (incompleet)
+
+--------------
+Transitiviteit
+--------------
+
+Open source projecten zijn vaak op hun beurt ook afhankelijk van andere open source projecten (transitiviteit).
+Om eventuele problemen met andere afhankelijkheden te voorkomen,
+kun je andere afhankelijkheden uitsluiten bij een dependency met de tag exclusion of met de tag optional.
+Zie hiervoor: https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html
+
+Soms kan er ook een probleem optreden met de versie van de afhankelijkheid, je kunt de te gebruiken versies dan als volgt
+definiëren:
+
+<version>[1.0,1.5]</version> dit zijn alle versies tussen 1.0 en 1.5
+
+Dit doe je best eens je project klaar is, vermits die versies diegene zijn waarmee het project getest werd. Nieuwere
+versies kunnen immers je project verstoren. Dit doe je ENKEL BIJ DEPENDENCIES NIET BIJ PLUGINS.
+
+
+
